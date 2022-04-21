@@ -11,57 +11,57 @@ drop table if exists us_diff CASCADE;
 drop table if exists uk_diff CASCADE;
 
 CREATE TABLE "stock_price" (
-  "date" varcahr PRIMARY KEY,
-  "uga_close" float,
-  "shell_close" float,
-  "uga_volume" float,
-  "shell_volume" float,
-  "uga_diff" float,
-  "shell_diff" float
+  "Date" varcahr PRIMARY KEY,
+  "uga_Close" float,
+  "shell_Close" float,
+  "uga_Volume" float,
+  "shell_Volume" float,
+  "uga_Difference" float,
+  "shell_Difference" float
 );
 
 CREATE TABLE "fuel_price" (
-  "date" varchar PRIMARY KEY,
-  "us_fuelprice" float,
-  "uk_fuelprice" float,
+  "Date" varchar PRIMARY KEY,
+  "us_price" float,
+  "uk_price" float,
   "us_diff" float,
   "uk_diff" float
 );
 
 CREATE TABLE "us_info" (
-  "date" varchar PRIMARY KEY,
-  "uga_close" float,
-  "uga_volume" float,
-  "uga_diff" float,
-  "us_fuelprice" float
+  "Date" varchar PRIMARY KEY,
+  "uga_Close" float,
+  "uga_Volume" float,
+  "uga_Difference" float,
+  "us_price" float
 );
 
 CREATE TABLE "uk_info" (
-  "date" varchar PRIMARY KEY,
-  "shell_close" float,
-  "shell_volume" float,
-  "shell_diff" float,
-  "uk_fuelprice" float
+  "Date" varchar PRIMARY KEY,
+  "shell_Close" float,
+  "shell_Volume" float,
+  "shell_Difference" float,
+  "uk_price" float
 );
 
 CREATE TABLE "us_diff" (
-  "date" varcahr PRIMARY KEY,
+  "Date" varcahr PRIMARY KEY,
   "us_diff" float,
-  "uga_diff" float
+  "uga_Difference" float
 );
 
 CREATE TABLE "uk_diff" (
-  "date" varcahr PRIMARY KEY,
+  "Date" varcahr PRIMARY KEY,
   "uk_diff" float,
-  "shell_diff" float
+  "shell_Difference" float
 );
 
-ALTER TABLE "stock_price" ADD FOREIGN KEY ("date") REFERENCES "us_diff" ("date");
+ALTER TABLE "stock_price" ADD FOREIGN KEY ("Date") REFERENCES "us_diff" ("Date");
 
-ALTER TABLE "uk_diff" ADD FOREIGN KEY ("date") REFERENCES "stock_price" ("date");
+ALTER TABLE "stock_price" ADD FOREIGN KEY ("Date") REFERENCES "fuel_price" ("Date");
 
-ALTER TABLE "fuel_price" ADD FOREIGN KEY ("date") REFERENCES "stock_price" ("date");
+ALTER TABLE "us_info" ADD FOREIGN KEY ("Date") REFERENCES "stock_price" ("Date");
 
-ALTER TABLE "uk_info" ADD FOREIGN KEY ("date") REFERENCES "stock_price" ("date");
+ALTER TABLE "stock_price" ADD FOREIGN KEY ("Date") REFERENCES "uk_info" ("Date");
 
-ALTER TABLE "us_info" ADD FOREIGN KEY ("date") REFERENCES "stock_price" ("date");
+ALTER TABLE "stock_price" ADD FOREIGN KEY ("Date") REFERENCES "uk_diff" ("Date");
