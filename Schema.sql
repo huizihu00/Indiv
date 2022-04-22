@@ -10,8 +10,9 @@ drop table if exists uk_info CASCADE;
 drop table if exists us_diff CASCADE;
 drop table if exists uk_diff CASCADE;
 
+
 CREATE TABLE "stock_price" (
-  "Date" varcahr PRIMARY KEY,
+  "Date" varchar PRIMARY KEY,
   "uga_Close" float,
   "shell_Close" float,
   "uga_Volume" float,
@@ -24,7 +25,7 @@ CREATE TABLE "fuel_price" (
   "Date" varchar PRIMARY KEY,
   "us_price" float,
   "uk_price" float,
-  "us_diff" float,
+  "us_price_diff" float,
   "uk_diff" float
 );
 
@@ -45,13 +46,13 @@ CREATE TABLE "uk_info" (
 );
 
 CREATE TABLE "us_diff" (
-  "Date" varcahr PRIMARY KEY,
-  "us_diff" float,
+  "Date" varchar PRIMARY KEY,
+  "us_price_diff" float,
   "uga_Difference" float
 );
 
 CREATE TABLE "uk_diff" (
-  "Date" varcahr PRIMARY KEY,
+  "Date" varchar PRIMARY KEY,
   "uk_diff" float,
   "shell_Difference" float
 );
