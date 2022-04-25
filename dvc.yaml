@@ -1,30 +1,12 @@
 stages:
-  game_results_checks:
-    cmd: python /project/DataEngineering/python_files/Game_results.py
+  us_fuelprice_df_checks:
+    cmd: /project/DataEngineering/Data Engineering Individual Assignment.ipynb
     outs:
-      - game_results.txt:
+      - us_fuelprice_df.txt:
           checkpoint: true
 
-  Athlete_personal_information_checks:
-    cmd: python /project/DataEngineering/python_files/Athlete_personal_information.py
+  uk_fuelprice_df_checks:
+    cmd: /project/DataEngineering/Data Engineering Individual Assignment.ipynb
     outs:
-      - Athlete_personal_information.txt:
-          checkpoint: true
-
-  STK_tweets_checks:
-    cmd: python /project/DataEngineering/python_files/STK_tweets.py
-    outs:
-      - STK_tweets.txt:
-          checkpoint: true
-
-  data_transformation_checks:
-    cmd: python /project/DataEngineering/python_files/data_transformation.py
-    outs:
-      - data_transformation.txt:
-          checkpoint: true
-
-  write_into_database_checks:
-    cmd: python /project/DataEngineering/python_files/write_into_database.py
-    outs:
-      - write_into_database.txt:
+      - us_fuelprice_df.txt:
           checkpoint: true
