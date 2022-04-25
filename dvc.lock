@@ -1,0 +1,26 @@
+schema: '2.0'
+stages:
+  us_fuelprice_df_checks:
+    cmd: python /project/DataEngineering/python_files/us_fuelprice_df.py
+    outs:
+    - path: us_fuelprice_df.txt
+  uk_fuelprice_df_checks:
+    cmd: python /project/DataEngineering/python_files/uk_fuelprice_df.py
+    outs:
+    - path: uk_fuelprice_df.txt
+  stock_price_checks:
+    cmd: python /project/DataEngineering/python_files/stock_price.py
+    outs:
+    - path: stock_price.txt
+  fuel_price_checks:
+    cmd: python /project/DataEngineering/python_files/fuel_price.py
+    outs:
+    - path: fuel_price.txt
+  us_diff_checks:
+    cmd: python /project/DataEngineering/python_files/us_diff.py
+    outs:
+    - path: us_diff.txt
+  us_info_checks:
+    cmd: python /project/DataEngineering/python_files/us_info.py
+    outs:
+    - path: us_info.txt
